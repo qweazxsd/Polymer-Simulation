@@ -108,7 +108,7 @@ implemented just as easily.
 
 # Program's layout
 
-1. The program will read all the data from the supplied input file, input.txt. This file will contain the parameters of the run:
+1. The program will read all the data from the supplied input file, input.txt. This file will contain the parameters of the run and must be of a precise format for the program to parce correctly:
 
  - Polymer Lengths (list of Nm=total number of monomers per polymer)
  
@@ -173,7 +173,12 @@ if the number of maximum polymers (Max Tries) is reached.
 all the radii calculated.
 
 - The program will read all the radii from the files (e.g. 'radii_2d_N300_l10.txt')
-and will produce an histogram using matplotlib package in python. As the program reads the Radii from the file, every time the program executes all the radii calculated are not lost and 
+and will produce an histogram using matplotlib package in python.
+
+ - The program saves all radii calculated in the files for a reason: so every time the program executes the data will not be lost and the histogram will have more data to plot.
+
+6. The program will produce a graph of the Mean Radius Vs. Polymers
+Length.
 
 
 
