@@ -126,19 +126,19 @@ implemented just as easily.
   length)
   
   
-- The program will have a function that simulates a single polymer:
+2. The program will have a function that simulates a single polymer:
 
 single_polymer_sim()
 
--For single polymer simulation: the program will build the polymer,
+- For single polymer simulation: the program will build the polymer,
 one monomer at a time using the random walk principle.
 
--Before creating the next monomer the function will call another function wich checks if the monomer that would be creatred will collide with any of the monomers that had already been created.
+- Before creating the next monomer the function will call another function wich checks if the monomer that would be creatred will collide with any of the monomers that had already been created.
 
--The program will output each coordinate into a file: coordinates.txt
+- The program will output each coordinate into a file: coordinates.txt
 (the file will be overwritten for each polymer simulated).
 
--The function will return the radius (R, end-to-end distance) of the
+- The function will return the radius (R, end-to-end distance) of the
 polymer.
 
  - The program will output each radius into a file, after it's returned from
