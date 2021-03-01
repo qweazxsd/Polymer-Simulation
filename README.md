@@ -1,6 +1,6 @@
 # Polymer-Simulation
 
-# Abstract 
+# Abstract
 
 Polymers are long chains made of many identical sub-units called monomers. When no external forces act on the polymer, 
 it assumes a random shape in space. In this project I will calculate the average end-to-end distance of a model polymer
@@ -48,29 +48,29 @@ The following model for a polymer is an over simplification, and there many more
 conditions we need to account for in order to fully describe polymer geometry.
 First let us consider a two dimensional polymer made out of Nm monomers (See figure 1):
 
-A. Assume the first end of the first monomer in the chain is pinned in one
+1) Assume the first end of the first monomer in the chain is pinned in one
 place - say the origin of your coordinate system. The other end of the
 chain is free.
 
-B. In this model we ignore the internal structure of the monomers, and simplify it to be a stick-like line with a typical length denoted as l.
+2) In this model we ignore the internal structure of the monomers, and simplify it to be a stick-like line with a typical length denoted as l.
 
-C. Assume the stick-like lines are of zero thickness so they can overlap in
+3) Assume the stick-like lines are of zero thickness so they can overlap in
 space, i.e. cross each other (Although this is not very physical, we'll allow
 it to make things easier).
 
-D. Now, assume the two ends of each monomer to be a sphere with radius r,
+4) Now, assume the two ends of each monomer to be a sphere with radius r,
 which cannot overlap in space with other spheres. So a chain with
 N monomers will have N "sticks" and N + 1 spheres.
 
-E. Allow the angle between two monomers to assume any value between 0
+5) Allow the angle between two monomers to assume any value between 0
 and 2 pi, as long as no spheres overlap.
 
 Comments about the model: 
 
-A. Simplifying the monomers to be a stick-like line might look like a bad assumption but keep in mind that we're simulating a long chain,
+1) Simplifying the monomers to be a stick-like line might look like a bad assumption but keep in mind that we're simulating a long chain,
 so the inner structure of a monomer are small compared to the scale of the entire chain.
 
-B. Allowing the monomers to cross eachother is not a very good way to simulate monomers. But trying to code the 'no overlapping'
+2) Allowing the monomers to cross eachother is not a very good way to simulate monomers. But trying to code the 'no overlapping'
 condition with 2 "sticks", can be a bit more difficult. In addition the execution time might be too long for domestic computers if this condition is implemented.
 
 
@@ -105,6 +105,75 @@ in the range of 0 and 2 pi, resulting in a list of discrete angle intervals. Aft
 We use discrete values for the angle to better simulate random walk, the smaller Angle Interval is the closer the list is to a continues range, but a continues range can be 
 implemented just as easily.
 
+
+# Program's layout
+
+- The program will read all the data from the supplied input file, input.txt. This file will contain the parameters of the run:
+
+ -Polymer Lengths (list of Nm=total number of monomers per polymer)
+ 
+ -Monomer Length (length of each monomer)
+ 
+ -Edge Diameter (diameter of the spheres at the ends of each monomer)
+ 
+ -Dim (dimension)
+ 
+ -Angle Interval (d_theta and d_phi of the simulation)
+ 
+ -Mean Error (condition for stopping polymers simulations)
+ 
+ -Max Tries (maximum number of polymers simulated per polymer's
+  length)
+  
+  
+- The program will have a function that simulates a single polymer:
+
+single_polymer_sim()
+
+-For single polymer simulation: the program will build the polymer,
+one monomer at a time using the random walk principle.
+
+-Before creating the next monomer the function will call another function wich checks if the monomer that would be creatred will collide with any of the monomers that had already been created.
+
+-The program will output each coordinate into a file: coordinates.txt
+(the file will be overwritten for each polymer simulated).
+
+-The function will return the radius (R, end-to-end distance) of the
+polymer.
+
+ - The program will output each radius into a file, after it's returned from
+the function single_polymer_sim():
+
+-The file name includes the dimension, the total number of monomers for each polymer and the length of every monomer. For example: 'radii_2d_N300_l10.txt'
+
+ - For each Polymer length (in the list given PolymerLengths), the program
+will calculate the polymer's Mean Radius, by simulating as many polymers
+as needed (condition given below).
+
+-The Mean Radius is calculated using arithmetic mean 
+
+-How do we know when we found the Mean Radius and can stop the
+run (for a single polymers Length)? when the Stopping Criteria is
+true:
+
+![Screenshot (139)](https://user-images.githubusercontent.com/79839619/109499466-9d278880-7a9d-11eb-808e-933ae8ed5d5a.png)
+
+R_k is the mean radius which is calculated after every simulation and R_k-1 is the mean radius that had previously been calculated (before the simulation that just happened)
+
+the stopping criteria checks that the size we are calculating (in this
+case, Mean Radius) is not significantly affected by anymore calculations, and has already converged to the desired value. In other
+words - we want to make sure that if we were to add more calculations (in our case - more simulations), the change in the Mean Radius 
+(numerator of the fraction) will only be a small fraction of the value, and so we can deduce there is no need for more calculations. we
+decide what is that 'small fraction' by defining MeanErr.
+
+-The program will also stop the run (for a single Polymers Length)
+if the number of maximum polymers (Max Tries) is reached.
+
+ - For each Polymer length, the program will produce a Histogram graph of
+all the radii calculated.
+
+-The program will read all the radii from the files (e.g. 'radii_2d_N300_l10.txt')
+and will produce an histogram using matplotlib package in python. As the program reads the Radii from the file, every time the program executes all the radii calculated are not lost and 
 
 
 
