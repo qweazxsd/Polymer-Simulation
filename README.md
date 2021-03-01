@@ -108,21 +108,21 @@ implemented just as easily.
 
 # Program's layout
 
-- The program will read all the data from the supplied input file, input.txt. This file will contain the parameters of the run:
+1. The program will read all the data from the supplied input file, input.txt. This file will contain the parameters of the run:
 
- -Polymer Lengths (list of Nm=total number of monomers per polymer)
+ - Polymer Lengths (list of Nm=total number of monomers per polymer)
  
- -Monomer Length (length of each monomer)
+ - Monomer Length (length of each monomer)
  
- -Edge Diameter (diameter of the spheres at the ends of each monomer)
+ - Edge Diameter (diameter of the spheres at the ends of each monomer)
  
- -Dim (dimension)
+ - Dim (dimension)
  
- -Angle Interval (d_theta and d_phi of the simulation)
+ - Angle Interval (d_theta and d_phi of the simulation)
  
- -Mean Error (condition for stopping polymers simulations)
+ - Mean Error (condition for stopping polymers simulations)
  
- -Max Tries (maximum number of polymers simulated per polymer's
+ - Max Tries (maximum number of polymers simulated per polymer's
   length)
   
   
@@ -141,18 +141,18 @@ one monomer at a time using the random walk principle.
 - The function will return the radius (R, end-to-end distance) of the
 polymer.
 
- - The program will output each radius into a file, after it's returned from
+ 3. The program will output each radius into a file, after it's returned from
 the function single_polymer_sim():
 
--The file name includes the dimension, the total number of monomers for each polymer and the length of every monomer. For example: 'radii_2d_N300_l10.txt'
+- The file name includes the dimension, the total number of monomers for each polymer and the length of every monomer. For example: 'radii_2d_N300_l10.txt'
 
- - For each Polymer length (in the list given PolymerLengths), the program
+ 4. For each Polymer length (in the list given PolymerLengths), the program
 will calculate the polymer's Mean Radius, by simulating as many polymers
 as needed (condition given below).
 
--The Mean Radius is calculated using arithmetic mean 
+- The Mean Radius is calculated using arithmetic mean 
 
--How do we know when we found the Mean Radius and can stop the
+- How do we know when we found the Mean Radius and can stop the
 run (for a single polymers Length)? when the Stopping Criteria is
 true:
 
@@ -166,13 +166,13 @@ words - we want to make sure that if we were to add more calculations (in our ca
 (numerator of the fraction) will only be a small fraction of the value, and so we can deduce there is no need for more calculations. we
 decide what is that 'small fraction' by defining MeanErr.
 
--The program will also stop the run (for a single Polymers Length)
+- The program will also stop the run (for a single Polymers Length)
 if the number of maximum polymers (Max Tries) is reached.
 
- - For each Polymer length, the program will produce a Histogram graph of
+ 5. For each Polymer length, the program will produce a Histogram graph of
 all the radii calculated.
 
--The program will read all the radii from the files (e.g. 'radii_2d_N300_l10.txt')
+- The program will read all the radii from the files (e.g. 'radii_2d_N300_l10.txt')
 and will produce an histogram using matplotlib package in python. As the program reads the Radii from the file, every time the program executes all the radii calculated are not lost and 
 
 
