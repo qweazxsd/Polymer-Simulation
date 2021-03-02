@@ -9,7 +9,7 @@ in two and three dimensions. The model for a polymer will be a chain made of Nm 
 length of each monomer is constant but the angle between a monomer and the next one is random. To calculate the mean
 end-to-end distance of a polymer with Nm monomers the program will simulate many polymers with the same characteristics
 (same number of monomers and monomer length) where the only difference between one polymer to the next is the angle between each 
-pair of monomers which is random. After many such simulations there will be many polymers, each with its own Radius. Then the program 
+pair of monomers which is random. After many such simulations there will be many polymers, each with its own Radius (end-to-end distance). Then the program 
 will calculate the average of all said Radii. The output of the program is a linear graph representing the mean Radius as a function of 
 polymer length (Nm). In addition the program will output a histogram for each polymer length.
 
