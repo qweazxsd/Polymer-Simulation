@@ -1,6 +1,7 @@
 # Polymer-Simulation
+### Please read the User Manual in the wiki prior to executing the scripts.
 
-# Abstract
+## Abstract
 
 Polymers are long chains made of many identical sub-units called monomers. When no external forces act on the polymer, 
 it assumes a random shape in space. In this project I will calculate the average end-to-end distance of a model polymer
@@ -12,15 +13,15 @@ pair of monomers which is random. After many such simulations there will be many
 will calculate the average of all said Radii. The output of the program is a linear graph representing the mean Radius as a function of 
 polymer length (Nm). In addition the program will output a histogram for each polymer length.
 
-# Project overview
+## Project overview
 
-## What is a polymer?
+### What is a polymer?
 
 Polymer are huge molecules made out of many repeating sub-units called monomers,
 connected in a long thin chain. As the angles between two connected monomers
 can take a range of values, the polymer can deform and bend in space.
 
-## Project's Goals
+### Project's Goals
 
 Polymers can assume a range of random shapes. But random how? Are there
 more probable shapes then others? The number of configurations is huge, therefore it is impossible to calculate all possible shapes. What can be
@@ -42,7 +43,7 @@ Second goal - We will calculate the average end-to-end distance R_avg for each
 number of monomers Nm in a chain, and observe their dependency. Namely,
 plot a graph of R_avg vs Nm.
 
-## The 2D model
+### The 2D model
 
 The following model for a polymer is an over simplification, and there many more
 conditions we need to account for in order to fully describe polymer geometry.
@@ -80,13 +81,13 @@ Figure 1: Illustration of a simplified 2D model describing a chain of N
 monomers. Here the angle between two monomers is denotes as alpha_i, where i
 denotes the i-th monomer.
 
-## The 3D model
+### The 3D model
 
 The 3 dimensional model is similar in philosophy, with the only difference that
 we have another coordinate to consider. The obvious coordinate system might
 be spherical.
 
-## Random Walk
+### Random Walk
 
 So how can we generate a random structure of a chain? We will use
 the concept of 'Random Walks'. Random walk is a simple idea of taking
@@ -106,7 +107,7 @@ We use discrete values for the angle to better simulate random walk, the smaller
 implemented just as easily.
 
 
-# Program's layout
+## Program's layout
 
 1. The program will read all the data from the supplied input file, input.txt. This file will contain the parameters of the run and must be of a precise format for the program to parce correctly:
 
