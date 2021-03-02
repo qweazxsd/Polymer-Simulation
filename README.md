@@ -14,13 +14,13 @@ polymer length (Nm). In addition the program will output a histogram for each po
 
 # Project overview
 
-- What is a polymer?
+## What is a polymer?
 
 Polymer are huge molecules made out of many repeating sub-units called monomers,
 connected in a long thin chain. As the angles between two connected monomers
 can take a range of values, the polymer can deform and bend in space.
 
-- Project's Goals
+## Project's Goals
 
 Polymers can assume a range of random shapes. But random how? Are there
 more probable shapes then others? The number of configurations is huge, therefore it is impossible to calculate all possible shapes. What can be
@@ -42,7 +42,7 @@ Second goal - We will calculate the average end-to-end distance R_avg for each
 number of monomers Nm in a chain, and observe their dependency. Namely,
 plot a graph of R_avg vs Nm.
 
-- The 2D model
+## The 2D model
 
 The following model for a polymer is an over simplification, and there many more
 conditions we need to account for in order to fully describe polymer geometry.
@@ -80,13 +80,13 @@ Figure 1: Illustration of a simplified 2D model describing a chain of N
 monomers. Here the angle between two monomers is denotes as alpha_i, where i
 denotes the i-th monomer.
 
-- The 3D model
+## The 3D model
 
 The 3 dimensional model is similar in philosophy, with the only difference that
 we have another coordinate to consider. The obvious coordinate system might
 be spherical.
 
-- Random Walk
+## Random Walk
 
 So how can we generate a random structure of a chain? We will use
 the concept of 'Random Walks'. Random walk is a simple idea of taking
